@@ -176,11 +176,8 @@ main() {
   HttpRequest.request("blow.spi", responseType:"arraybuffer").then((req) { 
     ByteBuffer buf = req.response;
     txt.innerHtml = "received ${buf.lengthInBytes} bytes.";
-    InputElement inp = new Element.html('<input size="5" value="10" autocomplete="off">');
-    var btn = new Element.html('<input type="submit" value="Go">');
-    querySelector("#starter")..appendHtml("Number of times to decompress: ")
-                             ..append(inp)
-                             ..append(btn);
+    InputElement inp = querySelector("#N");
+    var btn = querySelector("#btn");
     btn.onClick.listen((e) {
       try {
         int N = int.parse(inp.value);
